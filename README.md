@@ -1,6 +1,6 @@
-# Capstone Project #1: Calculator
+# Capstone Project #1 - Calculator
 
-This is **Calculator**, a capstone project for TOP Foundations.
+This is **Calculator**, an essential utility that has withstood the test of time.
 
 ## Live Preview
 
