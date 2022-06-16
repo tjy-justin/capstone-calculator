@@ -16,6 +16,8 @@ This project is designed as part of **The Odin Project's** wonderful Web Develop
 
 Below are a collection of resources which helped improve my skills :sparkles: while building the project:
 
-- 
+- [if-else vs switch - javatpoint](https://www.javatpoint.com/if-else-vs-switch)
+- [What properties can I use with event.target? - Stack Overflow](https://stackoverflow.com/questions/7723188/what-properties-can-i-use-with-event-target)
+-
 
 Built with :heart: to **The Odin Project** ~
