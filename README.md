@@ -12,7 +12,7 @@ This project is hosted on **GitHub Pages**. Feel free to [:point_right: try it o
 
 - [x] Elementary arithmetic operations
 - [ ] Multiple ops in a string
-- [ ] Evaluate only a single pair of numbers at a time
+- [x] Evaluate only a single pair of numbers at a time
 - [x] Round up long results and decimals
 - [x] Implement negative numbers
 - [x] Clear entire calculation

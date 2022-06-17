@@ -38,7 +38,7 @@ function setNumber(numBtn) {
 
   if (input.length >= 10) {
     statusCalc.textContent = ">   Number limit reached.";
-  } else if (input.length == 0 && operator === "÷" && numBtn === "0") {
+  } else if (operator === "÷" && numBtn === "0") {
     statusCalc.textContent = ">   You can't divide by a zero!";
   } else {
     currentCalc.textContent = input.concat("", numBtn);
@@ -94,7 +94,7 @@ function operate(operator, firstOperand, secondOperand) {
   if (result.toString().length < 12) {
     return Math.round(result * 1000) / 1000;
   } else {
-    return (Math.round(result * 1000) / 1000).toExponential(5);
+    return (Math.round(result * 1000) / 1000).toExponential(4);
   }
 }
 
@@ -129,6 +129,8 @@ function deleteNumber() {
   currentCalc.textContent = currentCalc.textContent.toString().slice(0, -1);
 }
 
+// Partially working keyboard support
+
 window.addEventListener("keydown", convertKeys);
 
 function convertKeys(e) {
@@ -142,8 +144,8 @@ function convertKeys(e) {
 }
 
 function convertOps(operator) {
-  if (operator === "/") return "÷";
-  if (operator === "*") return "×";
-  if (operator === "-") return "-";
   if (operator === "+") return "+";
+  if (operator === "-") return "-";
+  if (operator === "*") return "×";
+  if (operator === "/") return "÷";
 }
