@@ -6,6 +6,8 @@ This is **Calculator**, an essential utility that has withstood the test of time
 
 This project is hosted on **GitHub Pages**. Feel free to [:point_right: try it out](https://raineedust.github.io/capstone-calculator/)!
 
+![](./images/chrome_cqYTP.png)
+
 ## Motivation and Goals
 
 - [x] Elementary arithmetic operations
