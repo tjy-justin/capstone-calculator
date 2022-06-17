@@ -15,6 +15,7 @@ This project is hosted on **GitHub Pages**. Feel free to [:point_right: try it o
 - [x] Implement negative numbers
 - [x] Clear entire calculation
 - [x] Warn of zero division
+- [ ] Prevent entering operators and equal before numbers
 - [x] Operators won't register w/o numbers or when entered twice
 - [x] Multiple round of operation when equalBtn pressed repeatedly
 - [x] CSS: Implement display font scaling

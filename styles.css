@@ -10,15 +10,17 @@
 
 body {
   font-family: sfpro;
-  background-color: #273136;
+  background-color: #42535c;
   color: white;
-  /* background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(5px);
-  background-image: url(./images/minimal-desk-right.png) */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 a {
-  color: cadetblue;
+  color: #75c3c6;
   text-decoration: none;
 }
 
@@ -35,8 +37,14 @@ main {
   border-radius: 2.5em;
   display: grid;
   background-color: #000;
-  margin-top: 5.4em;
-  margin-bottom: 1.2em;
+  margin-top: 8vw;
+
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 1rem 5px rgba(0, 0, 0, 0.2);
+}
+
+.time {
+  padding: 1.5em 0 0 2em;
 }
 
 .display {
@@ -45,14 +53,17 @@ main {
   align-items: flex-end;
   justify-content: flex-end;
   color: #f6f6f6;
-  height: 236px;
+  height: 188px;
   padding: 1em;
+  padding-right: 30px;
+  padding-bottom: 10px;
   font-family: jbmono;
   font-size: max(0.5vw, 1em, 1.5rem);
 }
 
 .currentCalc {
   font-size: max(1vw, 1.5em, 2rem);
+  padding-top: 5px;
 }
 
 .btn {
@@ -74,25 +85,25 @@ button {
   border-style: none;
 }
 
-button:active {
-  background-color: #96b3a0;
-  transition-duration: 0.1s;
+.miscBtn {
+  background-color: #76af8a;
+  color: #000;
+  transition-duration: 0.2s;
+}
+
+.miscBtn:active {
+  background-color: rgb(182, 214, 193);
 }
 
 .clearBtn {
-  background-color: #76af8a;
-  color: #000;
   font-size: 0.8em;
 }
 
 .negBtn {
-  background-color: #76af8a;
-  color: #000;
   font-size: 0.9em;
 }
 
 .delBtn {
-  background-color: #76af8a;
   color: #000;
 }
 
@@ -100,6 +111,11 @@ button:active {
   background-color: #7abdb1;
   color: white;
   font-size: 1.15em;
+  transition-duration: 0.2s;
+}
+
+.opsBtn:active {
+  background-color: #9fd3c9;
 }
 
 .subtr {
@@ -108,6 +124,11 @@ button:active {
 
 .numBtn {
   background-color: #43634e;
+  transition-duration: 0.2s;
+}
+
+.numBtn:active {
+  background-color: #96b3a0;
 }
 
 .zero {
@@ -116,9 +137,23 @@ button:active {
   padding-left: 0.7em;
 }
 
+.decimalBtn {
+  background-color: #43634e;
+  transition-duration: 0.2s;
+}
+
+.decimalBtn:active {
+  background-color: #96b3a0;
+}
+
 .equalBtn {
   background-color: #7abdb1;
   color: white;
+  transition-duration: 0.2s;
+}
+
+.equalBtn:active {
+  background-color: #9fd3c9;
 }
 
 .gesture {
@@ -130,22 +165,18 @@ button:active {
 }
 
 footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   border-radius: 20px;
-  text-align: center;
   height: 4em;
   word-spacing: 3px;
-  margin-left: 20.8em;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-  align-content: center;
-  width: 30.5%;
+  width: 290px;
+  margin: 1.5em 0 1.5em 0;
 
   /* Mica effect */
   backdrop-filter: blur(10px);
   background-color: rgba(255, 255, 255, 0.15);
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
 }

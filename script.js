@@ -85,9 +85,9 @@ function operate(operator, firstOperand, secondOperand) {
   }
 
   if (result.toString().length < 12) {
-    return result;
+    return Math.round(result * 1000) / 1000;
   } else {
-    return result.toExponential(3);
+    return Math.round(result * 1000) / 1000;
   }
 }
 
@@ -121,21 +121,21 @@ function deleteNumber() {
   currentCalc.textContent = currentCalc.textContent.toString().slice(0, -1);
 }
 
-// window.addEventListener("keydown", convertKeys);
+window.addEventListener("keydown", convertKeys);
 
-// function convertKeys(e) {
-//   if (e.key === "Escape") clearCalc();
-//   if (e.key === "Backspace") deleteNumber();
-//   if (e.key === ".") setDecimal();
-//   if (e.key === "=" || e.key === "Enter") evaluate();
-//   if (e.key >= 0 && e.key <= 9) setNumber(e.key);
-//   if (e.key === "+" || e.key === "-" || e.key === "*" || e.key === "/")
-//     operate(convertOps(e.key));
-// }
+function convertKeys(e) {
+  if (e.key === "Escape") clearCalc();
+  if (e.key === "Backspace") deleteNumber();
+  if (e.key === ".") setDecimal();
+  if (e.key === "=" || e.key === "Enter") evaluate();
+  if (e.key >= 0 && e.key <= 9) setNumber(e.key);
+  if (e.key === "+" || e.key === "-" || e.key === "*" || e.key === "/")
+    operate(convertOps(e.key));
+}
 
-// function convertOps(operator) {
-//   if (operator === "/") return "÷";
-//   if (operator === "*") return "×";
-//   if (operator === "-") return "-";
-//   if (operator === "+") return "+";
-// }
+function convertOps(operator) {
+  if (operator === "/") return "÷";
+  if (operator === "*") return "×";
+  if (operator === "-") return "-";
+  if (operator === "+") return "+";
+}
