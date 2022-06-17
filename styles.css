@@ -19,6 +19,7 @@ body {
 
 a {
   color: cadetblue;
+  text-decoration: none;
 }
 
 main {
@@ -34,15 +35,17 @@ main {
   border-radius: 2.5em;
   display: grid;
   background-color: #000;
-  margin-top: 5.6em;
+  margin-top: 5.4em;
+  margin-bottom: 1.2em;
 }
 
 .display {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  justify-content: flex-end;
   color: #f6f6f6;
-  height: 244px;
+  height: 236px;
   padding: 1em;
   font-family: jbmono;
   font-size: max(0.5vw, 1em, 1.5rem);
@@ -56,7 +59,7 @@ main {
   display: grid;
   grid-template-columns: repeat(4, 64px);
   grid-template-rows: minmax(64px, auto) repeat(4, 64px);
-  gap: 0.3em;
+  gap: 0.35em;
   font-size: 1.9em;
   color: white;
   padding: 0.75em;
@@ -68,7 +71,12 @@ button {
   background-color: #43634e;
   border-radius: 5px;
   border-radius: 50px;
-  /* border-style: hidden; */
+  border-style: none;
+}
+
+button:active {
+  background-color: #96b3a0;
+  transition-duration: 0.1s;
 }
 
 .clearBtn {
@@ -119,4 +127,25 @@ button {
   width: 3.5em;
   margin-left: 88px;
   margin-top: 1.1em;
+}
+
+footer {
+  border-radius: 20px;
+  text-align: center;
+  height: 4em;
+  word-spacing: 3px;
+  margin-left: 20.8em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  width: 30.5%;
+
+  /* Mica effect */
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
 }

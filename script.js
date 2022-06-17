@@ -1,39 +1,3 @@
-// Functions with initialization priority
-
-function evaluate() {
-  if (operator && round == 1) {
-    lastCalc.textContent = lastCalc.textContent.concat(
-      " ",
-      currentCalc.textContent
-    );
-    secondOperand = currentCalc.textContent;
-    currentCalc.textContent = operate(operator, firstOperand, secondOperand);
-    round++;
-  } else {
-    lastCalc.textContent = `${currentCalc.textContent} ${operator} ${secondOperand}`;
-    firstOperand = currentCalc.textContent;
-    currentCalc.textContent = operate(operator, firstOperand, secondOperand);
-  }
-}
-
-function clearCalc() {
-  currentCalc.textContent = "";
-  lastCalc.textContent = "";
-  operator = "";
-  firstOperand = "";
-  secondOperand = "";
-  round = 1;
-}
-
-function addDecimal() {
-  if (
-    !currentCalc.textContent.includes(".") &&
-    currentCalc.textContent.length <= 10
-  ) {
-    currentCalc.textContent = currentCalc.textContent.concat("", ".");
-  }
-}
-
 // Listeners
 
 let operator;
@@ -64,30 +28,9 @@ opsBtn.forEach((button) =>
 );
 
 equalBtn.addEventListener("click", evaluate);
-decimalBtn.addEventListener("click", addDecimal);
+decimalBtn.addEventListener("click", setDecimal);
 
 // Functions
-
-function operate(operator, firstOperand, secondOperand) {
-  let a = parseFloat(firstOperand);
-  let b = parseFloat(secondOperand);
-
-  if (operator === "+") {
-    result = a + b;
-  } else if (operator === "-") {
-    result = a - b;
-  } else if (operator === "×") {
-    result = a * b;
-  } else if (operator === "÷") {
-    result = a / b;
-  }
-
-  if (result.toString().length < 12) {
-    return result;
-  } else {
-    return result.toExponential(5);
-  }
-}
 
 function setNumber(numBtn) {
   let input = currentCalc.textContent;
@@ -111,10 +54,88 @@ function setOperator(opsBtn) {
   }
 }
 
+function evaluate() {
+  if (operator && round == 1) {
+    lastCalc.textContent = lastCalc.textContent.concat(
+      " ",
+      currentCalc.textContent
+    );
+    secondOperand = currentCalc.textContent;
+    currentCalc.textContent = operate(operator, firstOperand, secondOperand);
+    round++;
+  } else {
+    lastCalc.textContent = `${currentCalc.textContent} ${operator} ${secondOperand}`;
+    firstOperand = currentCalc.textContent;
+    currentCalc.textContent = operate(operator, firstOperand, secondOperand);
+  }
+}
+
+function operate(operator, firstOperand, secondOperand) {
+  let a = parseFloat(firstOperand);
+  let b = parseFloat(secondOperand);
+
+  if (operator === "+") {
+    result = a + b;
+  } else if (operator === "-") {
+    result = a - b;
+  } else if (operator === "×") {
+    result = a * b;
+  } else if (operator === "÷") {
+    result = a / b;
+  }
+
+  if (result.toString().length < 12) {
+    return result;
+  } else {
+    return result.toExponential(3);
+  }
+}
+
+function clearCalc() {
+  currentCalc.textContent = "";
+  lastCalc.textContent = "";
+  operator = "";
+  firstOperand = "";
+  secondOperand = "";
+  round = 1;
+}
+
+function setNegative() {
+  if (currentCalc.textContent) {
+    currentCalc.textContent = (currentCalc.textContent * -1).toString();
+  }
+}
+
+// EXTRA CREDIT
+
+function setDecimal() {
+  if (
+    !currentCalc.textContent.includes(".") &&
+    currentCalc.textContent.length <= 10
+  ) {
+    currentCalc.textContent = currentCalc.textContent.concat("", ".");
+  }
+}
+
 function deleteNumber() {
   currentCalc.textContent = currentCalc.textContent.toString().slice(0, -1);
 }
 
-function setNegative() {
-  currentCalc.textContent = (currentCalc.textContent * -1).toString();
-}
+// window.addEventListener("keydown", convertKeys);
+
+// function convertKeys(e) {
+//   if (e.key === "Escape") clearCalc();
+//   if (e.key === "Backspace") deleteNumber();
+//   if (e.key === ".") setDecimal();
+//   if (e.key === "=" || e.key === "Enter") evaluate();
+//   if (e.key >= 0 && e.key <= 9) setNumber(e.key);
+//   if (e.key === "+" || e.key === "-" || e.key === "*" || e.key === "/")
+//     operate(convertOps(e.key));
+// }
+
+// function convertOps(operator) {
+//   if (operator === "/") return "÷";
+//   if (operator === "*") return "×";
+//   if (operator === "-") return "-";
+//   if (operator === "+") return "+";
+// }
