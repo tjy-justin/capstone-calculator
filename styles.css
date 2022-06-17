@@ -1,0 +1,110 @@
+@font-face {
+  font-family: sfpro;
+  src: url(./assets/SF-Pro-Display-Regular.otf);
+}
+
+@font-face {
+  font-family: jbmono;
+  src: url(./assets/JetBrainsMono-VariableFont_wght.ttf);
+}
+
+body {
+  font-family: sfpro;
+  background-color: #273136;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calc {
+  border-width: 3px;
+  border-style: outset;
+  border-color: #c1ddf8;
+  border-radius: 2.5em;
+  /* width: 450px; */
+  display: grid;
+  background-color: #000;
+}
+
+.display {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  color: #f6f6f6;
+  height: 3.3em;
+  font-size: 4.5em;
+  padding: 0.3em;
+  /* font-family: jbmono; */
+}
+
+.btn {
+  display: grid;
+  grid-template-columns: repeat(4, 64px);
+  grid-template-rows: minmax(64px, auto) repeat(4, 64px);
+  gap: 0.3em;
+  font-size: 1.9em;
+  color: white;
+  padding: 0.73em;
+  /* padding-bottom: 0.65em; */
+}
+
+button {
+  color: white;
+  background-color: #43634e;
+  border-radius: 5px;
+  border-radius: 50px;
+}
+
+.clearBtn {
+  background-color: #76af8a;
+  color: #000;
+  font-size: 0.8em;
+}
+
+.negBtn {
+  background-color: #76af8a;
+  color: #000;
+  font-size: 0.9em;
+}
+
+.delBtn {
+  background-color: #76af8a;
+  color: #000;
+}
+
+.opsBtn {
+  background-color: #7abdb1;
+  color: white;
+  font-size: 1.15em;
+}
+
+.subtr {
+  font-size: 1.8em;
+}
+
+.numBtn {
+  background-color: #43634e;
+}
+
+.zero {
+  grid-column: span 2;
+  text-align: left;
+  padding-left: 0.7em;
+}
+
+.equalBtn {
+  background-color: #7abdb1;
+  color: white;
+}
+
+.gesture {
+  border-bottom: 5px solid white;
+  border-radius: 5px;
+  width: 3.5em;
+  margin-left: 88px;
+  margin-top: 1.2em;
+}
