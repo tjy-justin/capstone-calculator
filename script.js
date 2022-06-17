@@ -1,11 +1,12 @@
-// Listeners
-
 let operator;
 let firstOperand;
 let secondOperand;
 let round = 1;
 let result;
 
+// Listeners
+
+let statusCalc = document.querySelector(".statusCalc");
 let lastCalc = document.querySelector(".lastCalc");
 let currentCalc = document.querySelector(".currentCalc");
 let clearBtn = document.querySelector(".clearBtn");
@@ -36,9 +37,9 @@ function setNumber(numBtn) {
   let input = currentCalc.textContent;
 
   if (input.length >= 10) {
-    alert("Max characters entered.");
+    statusCalc.textContent = ">   Number limit reached.";
   } else if (input.length == 0 && operator === "÷" && numBtn === "0") {
-    alert("Ha, as intriguing as it sounds, you can't divide by a zero!");
+    statusCalc.textContent = ">   You can't divide by a zero!";
   } else {
     currentCalc.textContent = input.concat("", numBtn);
   }
@@ -63,6 +64,12 @@ function evaluate() {
     secondOperand = currentCalc.textContent;
     currentCalc.textContent = operate(operator, firstOperand, secondOperand);
     round++;
+  } else if (
+    lastCalc.textContent === "" ||
+    currentCalc.textContent === "NaN" ||
+    operator === ""
+  ) {
+    statusCalc.textContent = ">   Enter at least two operands.";
   } else {
     lastCalc.textContent = `${currentCalc.textContent} ${operator} ${secondOperand}`;
     firstOperand = currentCalc.textContent;
@@ -87,13 +94,14 @@ function operate(operator, firstOperand, secondOperand) {
   if (result.toString().length < 12) {
     return Math.round(result * 1000) / 1000;
   } else {
-    return Math.round(result * 1000) / 1000;
+    return (Math.round(result * 1000) / 1000).toExponential(5);
   }
 }
 
 function clearCalc() {
   currentCalc.textContent = "";
   lastCalc.textContent = "";
+  statusCalc.textContent = " ";
   operator = "";
   firstOperand = "";
   secondOperand = "";

@@ -47,13 +47,20 @@ main {
   padding: 1.5em 0 0 2em;
 }
 
+.statusCalc {
+  padding: 0.8em 0 0 1.8em;
+  clear: both;
+  white-space: pre-wrap;
+  font-size: 1.1em;
+}
+
 .display {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
   color: #f6f6f6;
-  height: 188px;
+  height: 159px;
   padding: 1em;
   padding-right: 30px;
   padding-bottom: 10px;
@@ -68,8 +75,8 @@ main {
 
 .btn {
   display: grid;
-  grid-template-columns: repeat(4, 64px);
-  grid-template-rows: minmax(64px, auto) repeat(4, 64px);
+  grid-template-columns: repeat(4, 2.06em);
+  grid-template-rows: minmax(2.06em, auto) repeat(4, 2.06em);
   gap: 0.35em;
   font-size: 1.9em;
   color: white;
@@ -157,11 +164,11 @@ button {
 }
 
 .gesture {
-  border-bottom: 5px solid white;
+  border-bottom: 5px solid #e4e4e4;
   border-radius: 5px;
   width: 3.5em;
   margin-left: 88px;
-  margin-top: 1.1em;
+  margin-top: 0.9em;
 }
 
 footer {

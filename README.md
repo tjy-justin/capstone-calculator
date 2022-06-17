@@ -13,11 +13,11 @@ This project is hosted on **GitHub Pages**. Feel free to [:point_right: try it o
 - [x] Elementary arithmetic operations
 - [ ] Multiple ops in a string
 - [ ] Evaluate only a single pair of numbers at a time
-- [x] Round up long results
+- [x] Round up long results and decimals
 - [x] Implement negative numbers
 - [x] Clear entire calculation
-- [x] Warn of zero division
-- [ ] Prevent entering operators and equal before numbers
+- [x] Warn of zero division, number limit
+- [x] Warn of entering operators and equal before numbers
 - [x] Operators won't register w/o numbers or when entered twice
 - [x] Multiple round of operation when equalBtn pressed repeatedly
 - [x] CSS: Implement display font scaling
@@ -39,5 +39,6 @@ Below are a collection of resources which helped improve my skills :sparkles: wh
 - [html - How to set min-font-size in CSS - Stack Overflow](https://stackoverflow.com/questions/23984629/how-to-set-min-font-size-in-css)
 - [css - Font scaling based on width of container - Stack Overflow](https://stackoverflow.com/questions/16056591/font-scaling-based-on-width-of-container)
 - [css - Remove blue underline from link - Stack Overflow](https://stackoverflow.com/questions/2789703/remove-blue-underline-from-link)
+- [javascript - How to set an element's textContent, without the string getting trimmed? - Stack Overflow](https://stackoverflow.com/questions/48695754/how-to-set-an-elements-textcontent-without-the-string-getting-trimmed)
 
 Built with :heart: to **The Odin Project**, a wonderful Web Development curriculum ~
