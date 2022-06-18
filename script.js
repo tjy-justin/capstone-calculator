@@ -46,13 +46,26 @@ function setNumber(numBtn) {
 }
 
 function setOperator(opsBtn) {
-  if (currentCalc.textContent) {
+  if (currentCalc.textContent != "" && lastCalc.textContent === "") {
     round = 1;
     operator = opsBtn;
     firstOperand = currentCalc.textContent;
     lastCalc.textContent = currentCalc.textContent.concat(" ", operator);
     currentCalc.textContent = "";
-  } else if (lastCalc.textContent) {
+    console.log("BEO1");
+  } else if (lastCalc.textContent != "") {
+    operator = opsBtn;
+    firstOperand = lastCalc.textContent.split(" ")[0];
+    secondOperand = currentCalc.textContent;
+    operate(operator, firstOperand, secondOperand);
+    lastCalc.textContent = "";
+    lastCalc.textContent = lastCalc.textContent.concat(
+      roundedCalc,
+      " ",
+      operator
+    );
+    console.log("BEO2", operator, firstOperand, secondOperand);
+    currentCalc.textContent = "";
   }
 }
 
@@ -62,10 +75,14 @@ function evaluate() {
       " ",
       currentCalc.textContent
     );
+    firstOperand = lastCalc.textContent.split(" ")[0];
     secondOperand = currentCalc.textContent;
+    // console.log(lastCalc.textContent);
+    // console.log("fuck1", operator, firstOperand, secondOperand);
     currentCalc.textContent = operate(operator, firstOperand, secondOperand);
     round++;
     statusMsg.textContent = " ";
+    // lastCalc.textContent = "";
   } else if (
     lastCalc.textContent === "" ||
     currentCalc.textContent === "NaN" ||
@@ -75,6 +92,7 @@ function evaluate() {
   } else {
     lastCalc.textContent = `${currentCalc.textContent} ${operator} ${secondOperand}`;
     firstOperand = currentCalc.textContent;
+    // console.log("fuck2", operator, firstOperand, secondOperand);
     currentCalc.textContent = operate(operator, firstOperand, secondOperand);
   }
 }
@@ -96,14 +114,16 @@ function operate(operator, firstOperand, secondOperand) {
   // Check decimals and length
 
   roundedCalc = Math.round(result * 1000) / 1000;
-  // console.log(roundedCalc % 1);
-  // console.log(roundedCalc.toString().length);
 
-  if (roundedCalc % 1 != 0 && roundedCalc.toString().length <= 11) {
+  if (
+    (roundedCalc % 1 != 0 && roundedCalc.toString().length <= 11) ||
+    (roundedCalc % 1 === 0 && roundedCalc.toString().length <= 11)
+  ) {
     return roundedCalc;
-  } else if (roundedCalc % 1 != 0 && roundedCalc.toString().length > 11) {
-    return roundedCalc.toExponential(3);
-  } else {
+  } else if (
+    (roundedCalc % 1 != 0 && roundedCalc.toString().length > 11) ||
+    (roundedCalc % 1 === 0 && roundedCalc.toString().length > 11)
+  ) {
     return roundedCalc.toExponential(3);
   }
 }
