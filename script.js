@@ -109,7 +109,6 @@ function evaluate() {
     );
     statusMsg.textContent = " ";
     lastCalc.textContent = "";
-    console.log("bro1");
   } else if (
     lastCalc.textContent === "" ||
     currentCalc.textContent === "NaN" ||
@@ -120,7 +119,8 @@ function evaluate() {
     lastCalc.textContent = `${currentCalc.textContent} ${operator} ${secondOperand}`;
     firstOperand = currentCalc.textContent;
     currentCalc.textContent = operate(operator, firstOperand, secondOperand);
-    console.log("bro2");
+    statusMsg.textContent = " ";
+    lastCalc.textContent = "";
   }
 }
 
