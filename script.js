@@ -93,28 +93,20 @@ function operate(operator, firstOperand, secondOperand) {
     result = a / b;
   }
 
-  // Check decimals first
-  // This code is a holy spaghetti mess, I'm sure it can be refactored!
+  // Check decimals and length
 
   roundedCalc = Math.round(result * 1000) / 1000;
-  console.log(roundedCalc);
-  console.log(roundedCalc % 1);
-  console.log(roundedCalc.toString().length);
+  // console.log(roundedCalc % 1);
+  // console.log(roundedCalc.toString().length);
 
-  if (roundedCalc % 1 != 0 && result.toString().length < 11) {
-    return Math.round(result * 1000) / 1000;
+  if (roundedCalc % 1 != 0 && roundedCalc.toString().length <= 11) {
+    return roundedCalc;
+  } else if (roundedCalc % 1 != 0 && roundedCalc.toString().length > 11) {
+    return roundedCalc.toExponential(3);
+  } else {
+    return roundedCalc.toExponential(3);
   }
 }
-
-//  else {
-//     if (roundedCalc % 1 != 0) {
-//       return roundedCalc.toExponential(3);
-//     } else if (roundedCalc.toString().length >= 12) {
-//       return roundedCalc.toExponential(3);
-//     } else {
-//       return Math.round(result * 1000) / 1000;
-//     }
-//   }
 
 function clearCalc() {
   currentCalc.textContent = "";
