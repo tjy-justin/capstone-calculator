@@ -11,7 +11,7 @@ This project is hosted on **GitHub Pages**. Feel free to [:point_right: try it o
 ## Motivation and Goals
 
 - [x] Elementary arithmetic operations
-- [x] Multiple ops in a string
+- [ ] Multiple ops in a string
 - [x] Evaluate only a single pair of numbers at a time
 - [x] Round up long results and decimals
 - [x] Implement negative numbers

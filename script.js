@@ -55,10 +55,11 @@ function setOperator(opsBtn) {
     lastCalc.textContent = firstOperand.concat(" ", operator);
     currentCalc.textContent = "";
     console.log("BEO1");
-  } else if (lastCalc.textContent != "" && secondOperand == "") {
+  } else if (lastCalc.textContent != "") {
     operator = opsBtn;
     firstOperand = lastCalc.textContent.split(" ")[0];
     secondOperand = currentCalc.textContent;
+    evaluate();
     operate(operator, firstOperand, secondOperand);
 
     // Display
