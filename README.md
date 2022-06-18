@@ -32,6 +32,7 @@ This project is hosted on **GitHub Pages**. Feel free to [:point_right: try it o
 ## Limitations
 
 - While not a requirement of this project, it turns out that supporting multiple rounds of operations get significantly more complicated w/o breaking the existing code.
+- Broken logic for changing operators.
 
 ## Resources
 

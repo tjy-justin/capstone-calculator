@@ -116,9 +116,11 @@ function evaluate() {
   ) {
     statusMsg.textContent = ">   Enter at least two operands.";
   } else {
-    lastCalc.textContent = `${currentCalc.textContent} ${operator} ${secondOperand}`;
     firstOperand = currentCalc.textContent;
     currentCalc.textContent = operate(operator, firstOperand, secondOperand);
+
+    // Display
+    lastCalc.textContent = `${currentCalc.textContent} ${operator} ${secondOperand}`;
     statusMsg.textContent = " ";
     lastCalc.textContent = "";
   }
