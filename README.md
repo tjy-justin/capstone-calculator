@@ -22,12 +22,12 @@ This project is hosted on **GitHub Pages**. Feel free to [:point_right: try it o
 - [x] Multiple round of operation when equalBtn pressed repeatedly
 - [x] CSS: Implement display font scaling
 - [x] CSS: opsBtn diff. color from numBtn
-- [x] CSS: Implement Grid
+- [x] CSS: Implement with Grid and Flexbox
 - [x] CSS: Implement modern-normalize
 - [x] EXTRA CREDIT: Implement decimals
 - [x] EXTRA CREDIT: Make it look nice
 - [x] EXTRA CREDIT: Delete characters
-- [ ] EXTRA CREDIT: Implement keyboard shortcuts
+- [x] EXTRA CREDIT: Implement keyboard shortcuts
 
 ## Resources
 

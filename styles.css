@@ -47,7 +47,7 @@ main {
   padding: 1.5em 0 0 2em;
 }
 
-.statusCalc {
+.statusMsg {
   padding: 0.8em 0 0 1.8em;
   clear: both;
   white-space: pre-wrap;
@@ -58,19 +58,22 @@ main {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: flex-end;
+  justify-content: flex-start;
   color: #f6f6f6;
-  height: 159px;
+  height: 158.5px;
   padding: 1em;
   padding-right: 30px;
   padding-bottom: 10px;
   font-family: jbmono;
   font-size: max(1vw, 1em, 1.25rem);
+  max-width: 327.906px;
 }
 
 .currentCalc {
   font-size: max(1vw, 1.5em, 2rem);
   padding-top: 5px;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 .btn {
@@ -126,7 +129,7 @@ button {
 }
 
 .subtr {
-  font-size: 1.8em;
+  font-size: 1.5em;
 }
 
 .numBtn {

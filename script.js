@@ -6,7 +6,7 @@ let result;
 
 // Listeners
 
-let statusCalc = document.querySelector(".statusCalc");
+let statusMsg = document.querySelector(".statusMsg");
 let lastCalc = document.querySelector(".lastCalc");
 let currentCalc = document.querySelector(".currentCalc");
 let clearBtn = document.querySelector(".clearBtn");
@@ -37,9 +37,9 @@ function setNumber(numBtn) {
   let input = currentCalc.textContent;
 
   if (input.length >= 10) {
-    statusCalc.textContent = ">   Number limit reached.";
+    statusMsg.textContent = ">   Number limit reached.";
   } else if (operator === "÷" && numBtn === "0") {
-    statusCalc.textContent = ">   You can't divide by a zero!";
+    statusMsg.textContent = ">   You can't divide by a zero!";
   } else {
     currentCalc.textContent = input.concat("", numBtn);
   }
@@ -52,6 +52,7 @@ function setOperator(opsBtn) {
     firstOperand = currentCalc.textContent;
     lastCalc.textContent = currentCalc.textContent.concat(" ", operator);
     currentCalc.textContent = "";
+  } else if (lastCalc.textContent) {
   }
 }
 
@@ -64,12 +65,13 @@ function evaluate() {
     secondOperand = currentCalc.textContent;
     currentCalc.textContent = operate(operator, firstOperand, secondOperand);
     round++;
+    statusMsg.textContent = " ";
   } else if (
     lastCalc.textContent === "" ||
     currentCalc.textContent === "NaN" ||
     operator === ""
   ) {
-    statusCalc.textContent = ">   Enter at least two operands.";
+    statusMsg.textContent = ">   Enter at least two operands.";
   } else {
     lastCalc.textContent = `${currentCalc.textContent} ${operator} ${secondOperand}`;
     firstOperand = currentCalc.textContent;
@@ -91,17 +93,33 @@ function operate(operator, firstOperand, secondOperand) {
     result = a / b;
   }
 
-  if (result.toString().length < 12) {
+  // Check decimals first
+  // This code is a holy spaghetti mess, I'm sure it can be refactored!
+
+  roundedCalc = Math.round(result * 1000) / 1000;
+  console.log(roundedCalc);
+  console.log(roundedCalc % 1);
+  console.log(roundedCalc.toString().length);
+
+  if (roundedCalc % 1 != 0 && result.toString().length < 11) {
     return Math.round(result * 1000) / 1000;
-  } else {
-    return (Math.round(result * 1000) / 1000).toExponential(4);
   }
 }
+
+//  else {
+//     if (roundedCalc % 1 != 0) {
+//       return roundedCalc.toExponential(3);
+//     } else if (roundedCalc.toString().length >= 12) {
+//       return roundedCalc.toExponential(3);
+//     } else {
+//       return Math.round(result * 1000) / 1000;
+//     }
+//   }
 
 function clearCalc() {
   currentCalc.textContent = "";
   lastCalc.textContent = "";
-  statusCalc.textContent = " ";
+  statusMsg.textContent = " ";
   operator = "";
   firstOperand = "";
   secondOperand = "";
@@ -129,7 +147,7 @@ function deleteNumber() {
   currentCalc.textContent = currentCalc.textContent.toString().slice(0, -1);
 }
 
-// Partially working keyboard support
+// Keyboard support
 
 window.addEventListener("keydown", convertKeys);
 
@@ -140,12 +158,12 @@ function convertKeys(e) {
   if (e.key === "=" || e.key === "Enter") evaluate();
   if (e.key >= 0 && e.key <= 9) setNumber(e.key);
   if (e.key === "+" || e.key === "-" || e.key === "*" || e.key === "/")
-    operate(convertOps(e.key));
+    setOperator(convertOps(e.key));
 }
 
-function convertOps(operator) {
-  if (operator === "+") return "+";
-  if (operator === "-") return "-";
-  if (operator === "*") return "×";
-  if (operator === "/") return "÷";
+function convertOps(opsKey) {
+  if (opsKey === "+") return "+";
+  if (opsKey === "-") return "-";
+  if (opsKey === "*") return "×";
+  if (opsKey === "/") return "÷";
 }
