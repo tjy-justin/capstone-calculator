@@ -11,7 +11,7 @@ This project is hosted on **GitHub Pages**. Feel free to [:point_right: try it o
 ## Motivation and Goals
 
 - [x] Elementary arithmetic operations
-- [ ] Multiple ops in a string
+- [x] Multiple ops in a string
 - [x] Evaluate only a single pair of numbers at a time
 - [x] Round up long results and decimals
 - [x] Implement negative numbers
@@ -28,6 +28,10 @@ This project is hosted on **GitHub Pages**. Feel free to [:point_right: try it o
 - [x] EXTRA CREDIT: Make it look nice
 - [x] EXTRA CREDIT: Delete characters
 - [x] EXTRA CREDIT: Implement keyboard shortcuts
+
+## Limitations
+
+- While not a requirement of this project, it turns out that supporting multiple rounds of operations get significantly more complicated w/o breaking the existing code.
 
 ## Resources
 

@@ -50,39 +50,65 @@ function setOperator(opsBtn) {
     round = 1;
     operator = opsBtn;
     firstOperand = currentCalc.textContent;
-    lastCalc.textContent = currentCalc.textContent.concat(" ", operator);
+
+    // Display
+    lastCalc.textContent = firstOperand.concat(" ", operator);
     currentCalc.textContent = "";
     console.log("BEO1");
-  } else if (lastCalc.textContent != "") {
+  } else if (lastCalc.textContent != "" && secondOperand == "") {
     operator = opsBtn;
     firstOperand = lastCalc.textContent.split(" ")[0];
     secondOperand = currentCalc.textContent;
     operate(operator, firstOperand, secondOperand);
+
+    // Display
     lastCalc.textContent = "";
     lastCalc.textContent = lastCalc.textContent.concat(
       roundedCalc,
       " ",
       operator
     );
-    console.log("BEO2", operator, firstOperand, secondOperand);
     currentCalc.textContent = "";
+    // secondOperand = "";
+    console.log("BEO2", operator, firstOperand, secondOperand);
   }
+
+  // else if (lastCalc.textContent != "" && secondOperand != "") {
+  //   operator = opsBtn;
+  //   firstOperand = currentCalc.textContent;
+  //   secondOperand = lastCalc.textContent.split(" ")[0];
+  //   console.log(secondOperand);
+  //   operate(operator, firstOperand, secondOperand);
+
+  //   // Display
+  //   lastCalc.textContent = "";
+  //   lastCalc.textContent = lastCalc.textContent.concat(
+  //     roundedCalc,
+  //     " ",
+  //     operator
+  //   );
+  //   currentCalc.textContent = "";
+  //   console.log("BEO3", operator, firstOperand, secondOperand);
+  //   // firstOperand = "";
+  //   // secondOperand = "";
+  // }
 }
 
 function evaluate() {
   if (operator && round == 1) {
+    firstOperand = lastCalc.textContent.split(" ")[0];
+    secondOperand = currentCalc.textContent;
+    currentCalc.textContent = operate(operator, firstOperand, secondOperand);
+    round++;
+
+    // Display
     lastCalc.textContent = lastCalc.textContent.concat(
       " ",
       currentCalc.textContent
     );
-    firstOperand = lastCalc.textContent.split(" ")[0];
-    secondOperand = currentCalc.textContent;
-    // console.log(lastCalc.textContent);
-    // console.log("fuck1", operator, firstOperand, secondOperand);
-    currentCalc.textContent = operate(operator, firstOperand, secondOperand);
-    round++;
     statusMsg.textContent = " ";
-    // lastCalc.textContent = "";
+    lastCalc.textContent = "";
+    console.log("bro1");
   } else if (
     lastCalc.textContent === "" ||
     currentCalc.textContent === "NaN" ||
@@ -92,8 +118,8 @@ function evaluate() {
   } else {
     lastCalc.textContent = `${currentCalc.textContent} ${operator} ${secondOperand}`;
     firstOperand = currentCalc.textContent;
-    // console.log("fuck2", operator, firstOperand, secondOperand);
     currentCalc.textContent = operate(operator, firstOperand, secondOperand);
+    console.log("bro2");
   }
 }
 
