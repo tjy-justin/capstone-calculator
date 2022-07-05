@@ -6,16 +6,16 @@ let result;
 
 // Listeners
 
-let statusMsg = document.querySelector(".statusMsg");
-let lastCalc = document.querySelector(".lastCalc");
-let currentCalc = document.querySelector(".currentCalc");
-let clearBtn = document.querySelector(".clearBtn");
-let negBtn = document.querySelector(".negBtn");
-let delBtn = document.querySelector(".delBtn");
-let numBtn = document.querySelectorAll(".numBtn");
-let opsBtn = document.querySelectorAll(".opsBtn");
-let equalBtn = document.querySelector(".equalBtn");
-let decimalBtn = document.querySelector(".decimalBtn");
+const statusMsg = document.querySelector(".statusMsg");
+const lastCalc = document.querySelector(".lastCalc");
+const currentCalc = document.querySelector(".currentCalc");
+const clearBtn = document.querySelector(".clearBtn");
+const negBtn = document.querySelector(".negBtn");
+const delBtn = document.querySelector(".delBtn");
+const numBtn = document.querySelectorAll(".numBtn");
+const opsBtn = document.querySelectorAll(".opsBtn");
+const equalBtn = document.querySelector(".equalBtn");
+const decimalBtn = document.querySelector(".decimalBtn");
 
 clearBtn.addEventListener("click", clearCalc);
 delBtn.addEventListener("click", deleteNumber);
@@ -34,7 +34,7 @@ decimalBtn.addEventListener("click", setDecimal);
 // Functions
 
 function setNumber(numBtn) {
-  let input = currentCalc.textContent;
+  const input = currentCalc.textContent;
 
   if (input.length >= 10) {
     statusMsg.textContent = ">   Number limit reached.";
@@ -127,8 +127,8 @@ function evaluate() {
 }
 
 function operate(operator, firstOperand, secondOperand) {
-  let a = parseFloat(firstOperand);
-  let b = parseFloat(secondOperand);
+  const a = parseFloat(firstOperand);
+  const b = parseFloat(secondOperand);
 
   if (operator === "+") {
     result = a + b;
@@ -149,7 +149,8 @@ function operate(operator, firstOperand, secondOperand) {
     (roundedCalc % 1 === 0 && roundedCalc.toString().length <= 11)
   ) {
     return roundedCalc;
-  } else if (
+  }
+  if (
     (roundedCalc % 1 != 0 && roundedCalc.toString().length > 11) ||
     (roundedCalc % 1 === 0 && roundedCalc.toString().length > 11)
   ) {
