@@ -15,8 +15,8 @@ const negBtn = document.querySelector(".negBtn");
 const delBtn = document.querySelector(".delBtn");
 const numBtn = document.querySelectorAll(".numBtn");
 const opsBtn = document.querySelectorAll(".opsBtn");
-const equalBtn = document.querySelector(".equalBtn");
 const decimalBtn = document.querySelector(".decimalBtn");
+const equalBtn = document.querySelector(".equalBtn");
 
 // Rounding and calculation
 
