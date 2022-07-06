@@ -17,10 +17,6 @@ const opsBtn = document.querySelectorAll(".opsBtn");
 const equalBtn = document.querySelector(".equalBtn");
 const decimalBtn = document.querySelector(".decimalBtn");
 
-clearBtn.addEventListener("click", clearCalc);
-delBtn.addEventListener("click", deleteNumber);
-negBtn.addEventListener("click", setNegative);
-
 numBtn.forEach((button) =>
   button.addEventListener("click", () => setNumber(button.textContent))
 );
@@ -209,3 +205,9 @@ function convertOps(opsKey) {
   if (opsKey === "*") return "×";
   if (opsKey === "/") return "÷";
 }
+
+// Event
+
+clearBtn.addEventListener("click", clearCalc);
+delBtn.addEventListener("click", deleteNumber);
+negBtn.addEventListener("click", setNegative);
