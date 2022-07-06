@@ -9,7 +9,7 @@
 }
 
 body {
-  font-family: sfpro;
+  font-family: sfpro !important;
   background-color: #42535c;
   color: white;
 
@@ -60,11 +60,11 @@ main {
   align-items: flex-end;
   justify-content: flex-start;
   color: #f6f6f6;
-  height: 158.5px;
+  height: 159.5px;
   padding: 1em;
   padding-right: 30px;
   padding-bottom: 10px;
-  font-family: jbmono;
+  font-family: jbmono !important;
   font-size: max(1vw, 1em, 1.25rem);
   max-width: 327.906px;
 }
