@@ -99,8 +99,14 @@ function deleteNumber() {
 }
 
 function setNumber(number) {
-  if (currentCalc.textContent === "0" || resetCalc) resetScreen();
-  currentCalc.textContent += number;
+  if (currentCalc.textContent.length >= 10) {
+    statusMsg.textContent = ">   Number limit reached.";
+  } else if (currentCalc.textContent === "0" || resetCalc) {
+    resetScreen();
+    currentCalc.textContent += number;
+  } else {
+    currentCalc.textContent += number;
+  }
 }
 
 function setOperator(operator) {
