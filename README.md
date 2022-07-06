@@ -6,34 +6,28 @@ This is **Calculator**, an essential utility that has withstood the test of time
 
 This project is hosted on **GitHub Pages**. Feel free to [:point_right: try it out](https://raineedust.github.io/capstone-calculator/)!
 
-![](./images/chrome_ayTgT.png)
+![](./images/chrome_Nm5HK.png)
 
 ## Motivation and Goals
 
 - [x] Elementary arithmetic operations
 - [x] Multiple ops before equal
-- [ ] Change ops before equal
+- [x] Change ops before equal
 - [x] Evaluate only a single pair of numbers at a time
 - [x] Round up long results and decimals
 - [x] Implement negative numbers
 - [x] Clear entire calculation
 - [x] Warn of zero division, number limit
 - [x] Warn of entering operators and equal before numbers
-- [x] Operators won't register w/o numbers or when entered twice
-- [x] Multiple round of operation when equalBtn pressed repeatedly
+- [x] Operators won't register when entered w/o second operand
 - [x] CSS: Implement display font scaling
-- [x] CSS: opsBtn diff. color from numBtn
+- [x] CSS: Operation buttons different color from numbers
 - [x] CSS: Implement with Grid and Flexbox
 - [x] CSS: Implement modern-normalize
 - [x] EXTRA CREDIT: Implement decimals
 - [x] EXTRA CREDIT: Make it look nice
 - [x] EXTRA CREDIT: Delete characters
 - [x] EXTRA CREDIT: Implement keyboard shortcuts
-
-## Limitations
-
-- While not a requirement of this project, it turns out that supporting multiple rounds of operations get significantly more complicated w/o breaking the existing code.
-- Broken logic for changing operators.
 
 ## Resources
 
@@ -48,5 +42,7 @@ Below are a collection of resources which helped improve my skills :sparkles: wh
 - [javascript - How to set an element's textContent, without the string getting trimmed? - Stack Overflow](https://stackoverflow.com/questions/48695754/how-to-set-an-elements-textcontent-without-the-string-getting-trimmed)
 - [javascript - Check if a number has a decimal place/is a whole number - Stack Overflow](https://stackoverflow.com/questions/2304052/check-if-a-number-has-a-decimal-place-is-a-whole-number)
 - [javascript - Get first word of string - Stack Overflow](https://stackoverflow.com/questions/18558417/get-first-word-of-string)
+- [HTML data-\* Attribute](https://www.w3schools.com/tags/att_data-.asp)
+- [KeyboardEvent.key - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key)
 
 Built with :heart: to **The Odin Project**, a wonderful Web Development curriculum ~
