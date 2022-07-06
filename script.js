@@ -1,10 +1,11 @@
-let operator;
-let firstOperand;
-let secondOperand;
-let round = 1;
-let result;
+// Defaults
 
-// Listeners
+let firstOperand = "";
+let secondOperand = "";
+let currentOps = null;
+let resetCalc = false;
+
+// Selectors
 
 const statusMsg = document.querySelector(".statusMsg");
 const lastCalc = document.querySelector(".lastCalc");
@@ -17,177 +18,122 @@ const opsBtn = document.querySelectorAll(".opsBtn");
 const equalBtn = document.querySelector(".equalBtn");
 const decimalBtn = document.querySelector(".decimalBtn");
 
-numBtn.forEach((button) =>
-  button.addEventListener("click", () => setNumber(button.textContent))
-);
-opsBtn.forEach((button) =>
-  button.addEventListener("click", () => setOperator(button.textContent))
-);
+// Rounding and calculation
 
-equalBtn.addEventListener("click", evaluate);
-decimalBtn.addEventListener("click", setDecimal);
+function add(a, b) {
+  return a + b;
+}
 
-// Functions
+function subtract(a, b) {
+  return a - b;
+}
 
-function setNumber(numBtn) {
-  const input = currentCalc.textContent;
+function multiply(a, b) {
+  return a * b;
+}
 
-  if (input.length >= 10) {
-    statusMsg.textContent = ">   Number limit reached.";
-  } else if (operator === "÷" && numBtn === "0") {
-    statusMsg.textContent = ">   You can't divide by a zero!";
-  } else {
-    currentCalc.textContent = input.concat("", numBtn);
+function divide(a, b) {
+  return a / b;
+}
+
+function operate(operator, x, y) {
+  // following no-param-reassign rule:
+  const a = Number(x);
+  const b = Number(y);
+
+  switch (operator) {
+    case "+":
+      return add(a, b);
+    case "-":
+      return subtract(a, b);
+    case "×":
+      return multiply(a, b);
+    case "÷":
+      if (b === 0) return null;
+      return divide(a, b);
+    default:
+      return null;
   }
 }
 
-function setOperator(opsBtn) {
-  if (currentCalc.textContent != "" && lastCalc.textContent === "") {
-    round = 1;
-    operator = opsBtn;
-    firstOperand = currentCalc.textContent;
-
-    // Display
-    lastCalc.textContent = firstOperand.concat(" ", operator);
-    currentCalc.textContent = "";
-    console.log("BEO1");
-  } else if (lastCalc.textContent != "") {
-    operator = opsBtn;
-    firstOperand = lastCalc.textContent.split(" ")[0];
-    secondOperand = currentCalc.textContent;
-    evaluate();
-    operate(operator, firstOperand, secondOperand);
-
-    // Display
-    lastCalc.textContent = "";
-    lastCalc.textContent = lastCalc.textContent.concat(
-      roundedCalc,
-      " ",
-      operator
-    );
-    currentCalc.textContent = "";
-    // secondOperand = "";
-    console.log("BEO2", operator, firstOperand, secondOperand);
-  }
-
-  // else if (lastCalc.textContent != "" && secondOperand != "") {
-  //   operator = opsBtn;
-  //   firstOperand = currentCalc.textContent;
-  //   secondOperand = lastCalc.textContent.split(" ")[0];
-  //   console.log(secondOperand);
-  //   operate(operator, firstOperand, secondOperand);
-
-  //   // Display
-  //   lastCalc.textContent = "";
-  //   lastCalc.textContent = lastCalc.textContent.concat(
-  //     roundedCalc,
-  //     " ",
-  //     operator
-  //   );
-  //   currentCalc.textContent = "";
-  //   console.log("BEO3", operator, firstOperand, secondOperand);
-  //   // firstOperand = "";
-  //   // secondOperand = "";
-  // }
+function roundCalc(number) {
+  return Math.round(number * 1000) / 1000;
 }
 
 function evaluate() {
-  if (operator && round == 1) {
-    firstOperand = lastCalc.textContent.split(" ")[0];
-    secondOperand = currentCalc.textContent;
-    currentCalc.textContent = operate(operator, firstOperand, secondOperand);
-    round++;
+  if (currentOps === null || resetCalc) return;
+  if (currentOps === "÷" && currentCalc.textContent === "0")
+    statusMsg.textContent = ">   You can't divide by a zero!";
 
-    // Display
-    lastCalc.textContent = lastCalc.textContent.concat(
-      " ",
-      currentCalc.textContent
-    );
-    statusMsg.textContent = " ";
-    lastCalc.textContent = "";
-  } else if (
-    lastCalc.textContent === "" ||
-    currentCalc.textContent === "NaN" ||
-    operator === ""
-  ) {
-    statusMsg.textContent = ">   Enter at least two operands.";
-  } else {
-    firstOperand = currentCalc.textContent;
-    currentCalc.textContent = operate(operator, firstOperand, secondOperand);
+  secondOperand = currentCalc.textContent;
+  currentCalc.textContent = roundCalc(
+    operate(currentOps, firstOperand, secondOperand)
+  );
 
-    // Display
-    lastCalc.textContent = `${currentCalc.textContent} ${operator} ${secondOperand}`;
-    statusMsg.textContent = " ";
-    lastCalc.textContent = "";
-  }
+  lastCalc.textContent = `${firstOperand} ${currentOps} ${secondOperand} = `;
+  currentOps = null;
 }
 
-function operate(operator, firstOperand, secondOperand) {
-  const a = parseFloat(firstOperand);
-  const b = parseFloat(secondOperand);
+// User inputs
 
-  if (operator === "+") {
-    result = a + b;
-  } else if (operator === "-") {
-    result = a - b;
-  } else if (operator === "×") {
-    result = a * b;
-  } else if (operator === "÷") {
-    result = a / b;
-  }
-
-  // Check decimals and length
-
-  roundedCalc = Math.round(result * 1000) / 1000;
-
-  if (
-    (roundedCalc % 1 != 0 && roundedCalc.toString().length <= 11) ||
-    (roundedCalc % 1 === 0 && roundedCalc.toString().length <= 11)
-  ) {
-    return roundedCalc;
-  }
-  if (
-    (roundedCalc % 1 != 0 && roundedCalc.toString().length > 11) ||
-    (roundedCalc % 1 === 0 && roundedCalc.toString().length > 11)
-  ) {
-    return roundedCalc.toExponential(3);
-  }
+function resetScreen() {
+  currentCalc.textContent = "";
+  resetCalc = false;
 }
 
 function clearCalc() {
-  currentCalc.textContent = "";
+  currentCalc.textContent = "0";
   lastCalc.textContent = "";
   statusMsg.textContent = " ";
-  operator = "";
   firstOperand = "";
   secondOperand = "";
-  round = 1;
+  currentOps = null;
 }
 
 function setNegative() {
-  if (currentCalc.textContent) {
-    currentCalc.textContent = (currentCalc.textContent * -1).toString();
-  }
-}
-
-// EXTRA CREDIT
-
-function setDecimal() {
-  if (
-    !currentCalc.textContent.includes(".") &&
-    currentCalc.textContent.length <= 10
-  ) {
-    currentCalc.textContent = currentCalc.textContent.concat("", ".");
-  }
+  currentCalc.textContent = (currentCalc.textContent * -1).toString();
 }
 
 function deleteNumber() {
   currentCalc.textContent = currentCalc.textContent.toString().slice(0, -1);
 }
 
+function setNumber(number) {
+  if (currentCalc.textContent === "0" || resetCalc) resetScreen();
+  currentCalc.textContent += number;
+}
+
+function setOperator(operator) {
+  if (currentOps !== null) evaluate();
+  firstOperand = currentCalc.textContent;
+  currentOps = operator;
+  lastCalc.textContent = `${firstOperand} ${currentOps}`;
+  resetCalc = true;
+}
+
+function setDecimal() {
+  if (resetCalc) resetScreen();
+  if (currentCalc.textContent === "") currentCalc.textContent = "0";
+  if (currentCalc.textContent.includes(".")) return;
+  currentCalc.textContent += ".";
+}
+
 // Keyboard support
 
-window.addEventListener("keydown", convertKeys);
+function convertOps(opsKey) {
+  switch (opsKey) {
+    case "+":
+      return "+";
+    case "-":
+      return "-";
+    case "*":
+      return "×";
+    case "/":
+      return "÷";
+    default:
+      return null;
+  }
+}
 
 function convertKeys(e) {
   if (e.key === "Escape") clearCalc();
@@ -199,15 +145,19 @@ function convertKeys(e) {
     setOperator(convertOps(e.key));
 }
 
-function convertOps(opsKey) {
-  if (opsKey === "+") return "+";
-  if (opsKey === "-") return "-";
-  if (opsKey === "*") return "×";
-  if (opsKey === "/") return "÷";
-}
-
-// Event
+// Event Listeners
 
 clearBtn.addEventListener("click", clearCalc);
-delBtn.addEventListener("click", deleteNumber);
 negBtn.addEventListener("click", setNegative);
+delBtn.addEventListener("click", deleteNumber);
+window.addEventListener("keydown", convertKeys);
+
+numBtn.forEach((button) =>
+  button.addEventListener("click", () => setNumber(button.textContent))
+);
+opsBtn.forEach((button) =>
+  button.addEventListener("click", () => setOperator(button.textContent))
+);
+
+decimalBtn.addEventListener("click", setDecimal);
+equalBtn.addEventListener("click", evaluate);
