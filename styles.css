@@ -8,6 +8,8 @@
   src: url(./assets/JetBrainsMono-VariableFont_wght.ttf);
 }
 
+/* Screen Ruler Phone Width: 651px Height: 678px */
+
 body {
   font-family: sfpro !important;
   background-color: #42535c;
