@@ -70,7 +70,7 @@ function evaluate() {
     operate(currentOps, firstOperand, secondOperand)
   );
 
-  lastCalc.textContent = `${firstOperand} ${currentOps} ${secondOperand} = `;
+  lastCalc.textContent = `${firstOperand} ${currentOps} ${secondOperand}`;
   currentOps = null;
 }
 
