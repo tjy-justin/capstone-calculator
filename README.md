@@ -2,11 +2,11 @@
 
 This is **Calculator**, an essential utility that has withstood the test of time.
 
+![](./images/chrome_G6mX5.png)
+
 ## Live Preview
 
 This project is hosted on **GitHub Pages**. Feel free to [:point_right: try it out](https://raineedust.github.io/capstone-calculator/)!
-
-![](./images/chrome_G6mX5.png)
 
 ## Motivation and Goals
 
@@ -44,5 +44,10 @@ Below are a collection of resources which helped improve my skills :sparkles: wh
 - [javascript - Get first word of string - Stack Overflow](https://stackoverflow.com/questions/18558417/get-first-word-of-string)
 - [HTML data-\* Attribute](https://www.w3schools.com/tags/att_data-.asp)
 - [KeyboardEvent.key - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key)
+
+## Acknowledgements
+
+- [Browse Fonts - Google Fonts](https://fonts.google.com/)
+- [GitHub - sindresorhus/modern-normalize: 🐒 Normalize browsers' default style](https://github.com/sindresorhus/modern-normalize)
 
 Built with :heart: to **The Odin Project**, a wonderful Web Development curriculum ~
