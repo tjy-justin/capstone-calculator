@@ -2,11 +2,11 @@
 
 This is **Calculator**, an essential utility that has withstood the test of time.
 
+![](./images/chrome_G6mX5.png)
+
 ## Live Preview
 
 This project is hosted on **GitHub Pages**. Feel free to [:point_right: try it out](https://raineedust.github.io/capstone-calculator/)!
-
-![](./images/chrome_G6mX5.png)
 
 ## Motivation and Goals
 
