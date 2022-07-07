@@ -45,4 +45,8 @@ Below are a collection of resources which helped improve my skills :sparkles: wh
 - [HTML data-\* Attribute](https://www.w3schools.com/tags/att_data-.asp)
 - [KeyboardEvent.key - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key)
 
+## Acknowledgements
+
+- GitHub - sindresorhus/modern-normalize: 🐒 Normalize browsers' default style
+
 Built with :heart: to **The Odin Project**, a wonderful Web Development curriculum ~
