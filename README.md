@@ -6,7 +6,7 @@ This is **Calculator**, an essential utility that has withstood the test of time
 
 ## Live Preview
 
-This project is hosted on **GitHub Pages**. Feel free to [:point_right: try it out](https://raineedust.github.io/capstone-calculator/)!
+This project is hosted on **GitHub Pages**. Feel free to [:point_right: try it out](https://tjy-justin.github.io/capstone-calculator/)!
 
 ## Motivation and Goals
 
